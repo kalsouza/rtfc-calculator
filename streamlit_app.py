@@ -6,7 +6,7 @@ import pandas as pd
 
 # ─── 1.  Default fuel quotes ────────────────────────────────
 FUEL_CATALOG = {
-    "HVO Class-2 waste-oil": dict(price=620, unit="USD/m3", currency="USD",
+    "HVO Class-2 waste-oil": dict(price=1180, unit="USD/m3", currency="USD",
                                   density=0.78, rtfc_multiplier=2, energy_ratio=1.00),
     "UCOME FAME 0 °C":       dict(price=830, unit="USD/t",  currency="USD",
                                   density=0.88, rtfc_multiplier=2, energy_ratio=1.00),
@@ -18,7 +18,7 @@ FUEL_CATALOG = {
 
 # ─── 2.  Sidebar – FX only ─────────────────────────────────
 st.sidebar.header("Market FX")
-fx = st.sidebar.number_input("USD per GBP", value=1.3280, step=0.0001, format="%.4f")
+fx = st.sidebar.number_input("USD per GBP", value=1.3463, step=0.0001, format="%.4f")
 
 # ─── 3.  Main pane – fuel quote & shipping premium ─────────
 st.title("RTFC Cost-per-Certificate Calculator")
@@ -44,7 +44,7 @@ st.markdown("---")
 
 ship_col1, ship_col2, ship_col3 = st.columns(3)
 with ship_col1:
-    ship_val = st.number_input("Shipping premium", value=0.0, step=0.50)
+    ship_val = st.number_input("Shipping premium", value=30.0, step=0.50)
 with ship_col2:
     ship_unit = st.selectbox("Ship unit", ["per tonne", "per m3"], index=0)
 with ship_col3:
