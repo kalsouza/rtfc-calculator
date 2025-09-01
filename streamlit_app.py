@@ -46,7 +46,7 @@ ship_col1, ship_col2, ship_col3 = st.columns(3)
 with ship_col1:
     ship_val = st.number_input("Shipping premium", value=30.0, step=0.50)
 with ship_col2:
-    ship_unit = st.selectbox("Ship unit", ["per tonne", "per m3"], index=0)
+    ship_unit = st.selectbox("Ship unit", ["per m3", "per tonne"], index=0)
 with ship_col3:
     ship_curr = st.selectbox("Ship currency", ["USD", "GBP"], index=0)
 
