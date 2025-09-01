@@ -4,26 +4,6 @@
 import streamlit as st
 import pandas as pd
 
-# ─── PIN-gate (add immediately after the imports) ───────────────────────────
-# Hard-code one or more valid 4-digit PINs here.
-VALID_PINS = {"2025"}           # <= change to whatever you want
-
-# Use Streamlit session_state so the user only enters the PIN once per session.
-if "unlocked" not in st.session_state:
-    st.session_state.unlocked = False
-
-if not st.session_state.unlocked:
-    pin = st.text_input("Enter 4-digit PIN", type="password", max_chars=4)
-    
-    if pin and len(pin) == 4:
-        if pin in VALID_PINS:
-            st.session_state.unlocked = True
-            st.experimental_rerun()        # reload and show the app
-        else:
-            st.error("Incorrect PIN. Try again.")
-    st.stop()                              # halt the script until unlocked
-# ────────────────────────────────────────────────────────────────────────────
-
 # ─── 1.  Default fuel quotes ────────────────────────────────
 FUEL_CATALOG = {
     "HVO Class-2 waste-oil": dict(price=1180, unit="USD/m3", currency="USD",
